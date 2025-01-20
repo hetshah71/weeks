@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal portfolio website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/209d83d73f.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!------------------------------------------NAVBAR------------------------------->
+    <div id="Home" class="container">
+        <p class="logo">HET</p>
+        <nav>
+            <ul>
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact-me">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!------------------------------------------introduction--------------------------->
+    <div class="photo">
+        <div class="header-text">
+            <h1>Hi, i'm <span>Het Shah</span></h1>
+            <p>Software Developer</p>
+        </div>
+        <div class="text-b">
+            <img src="images/het.jpg">
+        </div>
+    </div>
+
+    <!----------------------------------------------About-------------------------------->
+    <div id="about">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/het.jpg">
+            </div>
+            <div class="about-col-2">
+                <h1>About Me</h1>
+                <p>A self-motivated and driven Software Engineer with a creative mindset, strong communication skills,
+                    and the ability to
+                    collaborate effectively with diverse personalities. Passionate about exploring emerging technologies
+                    and highly
+                    proficient in object-oriented programming (OOP) concepts. Experienced in designing and developing
+                    user-friendly
+                    interfaces using a variety of modern technologies.</p>
+                <div class="tab-titels">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links " onclick="opentab('Experience')">Experience</p>
+                    <p class="tab-links " onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Web-development</span><br>Creating, building, and maintaining of websites</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="Experience">
+                    <ul>
+                        <li><span>05/2023 - 06/2023</span><br>Web developer intern at Projecttree.</li>
+                        <li><span>05/2024 - 06/2024</span><br>Front-end developer intern at Celebal Technologies.</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>Higher Education-May-2021</span><br>A B Higher Secondary School,Navsari</li>
+                        <li><span>Bachelor of Technology in Information Technology-May-2025</span><br>C.S.
+                            Patel,Institute of technology,Anand</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----------------------------------------------services-------------------------------->
+    <div id="services">
+        <h1 class="sub-title">My Services</h1>
+        
+        <div class="servicesmain">
+            <div class="services-list">
+            <i class="fa-solid fa-code"></i>
+            <h3>Web-development</h3>
+            <p>We offer professional web development services, specializing in creating responsive, visually appealing,
+                and user-centric websites tailored to your business needs. From design to deployment,we ensure seamless
+                navigation, fast performance, and compatibility across all devices. Whether you need a personal
+                portfolio, e-commerce platform, or corporate website, our solutions are built to drive engagement and
+                deliver results.</p>
+            <a href="#">Learn more</a>
+        </div>
+        <div class="services-list">
+            <i class="fa-solid fa-code"></i>
+            <h3>Web-development</h3>
+            <p>We offer professional web development services, specializing in creating responsive, visually appealing,
+                and user-centric websites tailored to your business needs. From design to deployment,we ensure seamless
+                navigation, fast performance, and compatibility across all devices. Whether you need a personal
+                portfolio, e-commerce platform, or corporate website, our solutions are built to drive engagement and
+                deliver results.</p>
+            <a href="#">Learn more</a>
+        </div>
+        <div class="services-list">
+            <i class="fa-solid fa-code"></i>
+            <h3>Web-development</h3>
+            <p>We offer professional web development services, specializing in creating responsive, visually appealing,
+                and user-centric websites tailored to your business needs. From design to deployment,we ensure seamless
+                navigation, fast performance, and compatibility across all devices. Whether you need a personal
+                portfolio, e-commerce platform, or corporate website, our solutions are built to drive engagement and
+                deliver results.</p>
+            <a href="#">Learn more</a>
+            </div>
+        </div>
+        
+    </div>
+    <!----------------------------------------------portfolio-------------------------------->
+    <div id="portfolio">
+        <h1 class="sub-title">Portfolio</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="/week-2/portfolio/images/realestate.jpg">
+                <div class="layer">
+                    <h3>Realestate website</h3>
+                    <p>Designed and implemented a modern real estate marketplace using MERN stack</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="/week-2/portfolio/images/food_image.png">
+                <div class="layer">
+                    <h3>Food-Mangement System</h3>
+                    <p>Led the development of a comprehensive food delivery web application using MERN stack
+                        technologies stack</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="/week-2/portfolio/images/vote.jpg">
+                <div class="layer">
+                    <h3>online-voting System</h3>
+                    <p>Created a user-friendly and secure online voting system using PHP, MySQL, HTML, and CSS.</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn">see more</a>
+    </div>
+
+    <!----------------------------------------------Contact-------------------------------->
+    <div id="contact-me" class="contact">
+        <div class="row1">
+            <div class="contact-left">
+                <h1 class="hc">Contact Me</h1>
+                <p><i class="fa-solid fa-message"></i> </i>hetshah.ast@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i>7862032332</p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/het-shah-36a683230/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100068704827222"><i class="fa-brands fa-facebook"></i></i></a>
+                    <a href="https://www.instagram.com/hetshah72/?ref=8101&hl"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <a href="Het_Shah (1).pdf" download class="btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                    <form class="fr">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your email" required>
+                        <textarea name="message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn3">Submit</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>copyright @ HET SHAH. </p>
+    </div>
+
+    
+</body>
+</html>

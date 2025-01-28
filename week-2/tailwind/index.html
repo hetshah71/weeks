@@ -13,27 +13,22 @@
     <!-- Navbar -->
     <div id="Home" class="container mx-auto p-6 flex justify-between items-center flex-wrap">
         <p class="text-3xl font-bold">HET</p>
-        <nav>
-            <ul class="flex space-x-8">
-                <li><a href="#Home" class="text-lg hover:text-yellow-400 ">Home</a></li>
-                <li><a href="#about" class="text-lg hover:text-yellow-400 ">About Me</a></li>
-                <li><a href="#services" class="text-lg hover:text-yellow-400 ">Services</a></li>
-                <li><a href="#portfolio" class="text-lg hover:text-yellow-400 ">Portfolio</a></li>
-                <li><a href="#contact-me" class="text-lg hover:text-yellow-400 ">Contact</a></li>
+        <!-- Hamburger Menu Icon (Visible only on mobile) -->
+        <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+        <!-- Navigation Menu -->
+        <nav id="menu" class="hidden md:flex w-full md:w-auto flex-col md:flex-row md:space-x-8 mt-4 md:mt-0">
+            <ul class="flex flex-col justify-end items-end space-y-4 md:flex-row md:space-y-0 md:space-x-8">
+                <li><a href="#Home" class="text-lg hover:text-yellow-400">Home</a></li>
+                <li><a href="#about" class="text-lg hover:text-yellow-400">About Me</a></li>
+                <li><a href="#services" class="text-lg hover:text-yellow-400">Services</a></li>
+                <li><a href="#portfolio" class="text-lg hover:text-yellow-400">Portfolio</a></li>
+                <li><a href="#contact-me" class="text-lg hover:text-yellow-400">Contact</a></li>
             </ul>
         </nav>
-    </div>
-
-    <!-- Introduction -->
-    <div class="flex flex-col md:flex-row justify-between items-center py-12">
-        <div class="text-center md:text-left md:w-1/2 space-y-4 ml-10 ">
-            <h1 class="text-4xl font-bold">Hi, I'm <span class="text-teal-400">Het Shah</span></h1>
-            <p class="text-xl">Software Developer</p>
-        </div>
-        <div class="w-1/2 md:w-1/3 mt-8 md:mt-0 flex justify-center">
-            <img src="images/het.jpg" alt="Het Shah"
-                class="w-80 h-200px  transition-transform duration-500 transform hover:rotate-45">
-        </div>
     </div>
 
     <!-- About Me -->
@@ -41,9 +36,10 @@
         <div class="container mx-auto flex flex-col md:flex-row items-center space-y-8 md:space-y-0">
             <div class="md:w-1/2 flex justify-center">
                 <img src="images/het.jpg" alt="Het Shah"
-                    class="rounded-xl w-96 h-auto transition-transform duration-500 transform hover:rotate-45">
+                    class="rounded-xl w-96 h-auto ">
             </div>
-            <div class="md:w-1/2 text-center md:text-left space-y-4">
+
+            <div class="md:w-1/2 md:ml-4 text-center md:text-left space-y-4">
                 <h1 class="text-3xl font-bold">About Me</h1>
                 <p class="text-lg text-gray-300">A self-motivated and driven Software Engineer with a creative mindset,
                     strong communication skills, and the ability to collaborate effectively with diverse personalities.
@@ -51,15 +47,15 @@
                     programming (OOP) concepts. Experienced in designing and developing user-friendly interfaces using a
                     variety of modern technologies.</p>
 
-                <div class="flex justify-center space-x-8 mt-8">
-                    <p class="cursor-pointer text-lg font-semibold text-yellow-400 hover:text-teal-400"
+                <div class="flex justify-start space-x-8 mt-8">
+                    <p class="skil cursor-pointer text-lg font-semibold text-yellow-400 hover:text-teal-400" 
                         onclick="opentab('skills')">Skills</p>
                     <p class="cursor-pointer text-lg font-semibold text-yellow-400 hover:text-teal-400"
                         onclick="opentab('Experience')">Experience</p>
                     <p class="cursor-pointer text-lg font-semibold text-yellow-400 hover:text-teal-400"
                         onclick="opentab('education')">Education</p>
                 </div>
-                <div class="tab-contents active-tab" id="skills">
+                <div class="tab-contents" id="skills">
                     <ul class=" pl-8">
                         <li><span class="text-teal-400 font-semibold">Web-development</span><br>Creating, building, and
                             maintaining of websites</li>
@@ -86,11 +82,11 @@
     </div>
 
     <!-- Services -->
-    <div id="services" class="py-16 bg-gray-900">
-        <h1 class="text-3xl font-bold text-center text-yellow-400 mb-12">My Services</h1>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+    <div id="services" class="py-16 ">
+        <h1 class="text-3xl font-bold text-center text-white mb-12">My Services</h1>
+        <div class="grid p-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             <div
-                class="bg-gray-800 p-8 rounded-xl text-center space-y-4 transition-transform duration-300 transform hover:translate-y-4 hover:bg-gradient-to-r from-gray-800 to-red-600">
+                class="bg-gray-800 p-2 rounded-xl text-center space-y-4 transition-transform duration-300 transform hover:translate-y-4 hover:bg-gradient-to-r from-gray-800 to-red-600">
                 <i class="fas fa-code text-4xl text-teal-400"></i>
                 <h3 class="text-2xl font-semibold">Web Development</h3>
                 <p class="text-lg text-gray-300">We offer professional web development services, specializing in
@@ -120,69 +116,84 @@
     </div>
 
     <!-- Portfolio -->
-    <div id="portfolio" class="py-16 px-6">
-        <h1 class="text-3xl font-bold text-center text-yellow-400 mb-12">Portfolio</h1>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-            <div class="relative group">
-                <img src="/images/realestate.jpg" alt="Real Estate Website"
-                    class="w-full h-full rounded-xl object-cover transition-transform duration-500 transform group-hover:scale-110 ">
+    <div id="portfolio" class="py-4">
+        <h1 class="text-3xl font-semibold text-center mb-8">Portfolio</h1>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
+            <div class="relative group overflow-hidden border-2 border-white p-10 rounded-lg">
+                <img src="./images/realestate.jpg"
+                    class="w-full rounded-lg transition-transform duration-500 group-hover:scale-110">
                 <div
-                    class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100  transition-opacity duration-300 flex flex-col items-center justify-center text-center space-y-4">
-                    <h3 class="text-2xl font-semibold text-white">Realestate Website</h3>
-                    <p class="text-lg text-gray-300">Designed and implemented a modern real estate marketplace using the
-                        MERN stack.</p>
-                    <a href="#" class="text-teal-400 text-3xl"><i class="fas fa-arrow-up-right-from-square"></i></a>
+                    class="absolute inset-0 bg-gradient-to-b from-black/60 to-pink-500/80 rounded-lg flex flex-col justify-center items-center text-center px-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <h3 class="text-xl font-semibold text-white mb-4">Realestate website</h3>
+                    <p class="text-white mb-6">Designed and implemented a modern real estate marketplace using MERN stack
+                    </p>
+                    <a href="#"
+                        class="bg-white text-pink-500 w-14 h-14 flex justify-center items-center rounded-full text-lg">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
                 </div>
             </div>
-            <div class="relative group">
-                <img src="/images/food_image.png" alt="Food Management System"
-                    class="w-full h-full rounded-xl object-cover transition-transform duration-500 transform group-hover:scale-110">
+            <div class="relative group overflow-hidden border-2 border-white p-10 rounded-lg">
+                <img src="./images/food_image.png"
+                    class="w-full rounded-lg transition-transform duration-500 group-hover:scale-110">
                 <div
-                    class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center space-y-4 ">
-                    <h3 class="text-2xl font-semibold text-white">Food Management System</h3>
-                    <p class="text-lg text-gray-300">Led the development of a comprehensive food delivery web
-                        application using MERN stack technologies.</p>
-                    <a href="#" class="text-teal-400 text-3xl"><i class="fas fa-arrow-up-right-from-square"></i></a>
+                    class="absolute inset-0 bg-gradient-to-b from-black/60 to-pink-500/80 rounded-lg flex flex-col justify-center items-center text-center px-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <h3 class="text-xl font-semibold text-white mb-4">Food-Mangement System</h3>
+                    <p class="text-white mb-6">Led the development of a comprehensive food delivery web application using
+                        MERN stack technologies stack</p>
+                    <a href="#"
+                        class="bg-white text-pink-500 w-14 h-14 flex justify-center items-center rounded-full text-lg">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
                 </div>
             </div>
-            <div class="relative group">
-                <img src="/images/vote.jpg" alt="online voting"
-                    class="w-full h-full rounded-xl object-cover transition-transform duration-500 transform group-hover:scale-110">
+            <div class="relative group overflow-hidden border-2 border-white p-10 rounded-lg">
+                <img src="./images/vote.jpg"
+                    class="w-full rounded-lg transition-transform duration-500 group-hover:scale-110">
                 <div
-                    class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center space-y-4">
-                    <h3 class="text-2xl font-semibold text-white">online-voting System</h3>
-                    <p class="text-lg text-gray-300">Created a user-friendly and secure online voting system using PHP, MySQL, HTML, and CSS.</p>
-                    <a href="#" class="text-teal-400 text-3xl"><i class="fas fa-arrow-up-right-from-square"></i></a>
+                    class="absolute inset-0 bg-gradient-to-b from-black/60 to-pink-500/80 rounded-lg flex flex-col justify-center items-center text-center px-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <h3 class="text-xl font-semibold text-white mb-4">Online-Voting System</h3>
+                    <p class="text-white mb-6">Created a user-friendly and secure online voting system using PHP, MySQL,
+                        HTML, and CSS.</p>
+                    <a href="#"
+                        class="bg-white text-pink-500 w-14 h-14 flex justify-center items-center rounded-full text-lg">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
                 </div>
             </div>
         </div>
+        <a href="#"
+            class="block mx-auto mt-6 border-2 border-pink-500 text-white px-6 py-3 rounded-lg text-center transition-colors duration-500 hover:bg-pink-500 w-fit">
+            See More
+        </a>
     </div>
+
 
     <!-- Contact Me -->
     <div id="contact-me" class="py-16 px-8">
-        <div class="flex flex-col lg:flex-row justify-between items-start gap-8">
+        <div class="flex flex-col lg:flex-row justify-evenly items-start gap-4">
             <!-- Left Section -->
-            <div class="lg:w-1/2">
-                <h1 class="text-4xl font-bold mb-6">Contact Me</h1>
+            <div class="lg:w-1/2 flex flex-col items-center justify-start space-y-6">
+                <h1 class="text-4xl font-bold mb-6 ld:pl-[250px]">Contact Me</h1>
                 <p class="flex items-center text-lg mb-4">
                     <i class="fa-solid fa-message text-pink-500 mr-4 text-2xl"></i>
                     hetshah.ast@gmail.com
                 </p>
                 <p class="flex items-center text-lg mb-6">
-                    <i class="fa-solid fa-phone text-pink-500 mr-4 text-2xl"></i>
+                    <i class="fa-solid fa-phone text-pink-500 mr-4 text-2xl pl-[1px]"></i>
                     7862032332
                 </p>
-                <div class="flex space-x-4 mb-6">
+                <div class="flex space-x-4 mb-6 ">
                     <a href="https://www.linkedin.com/in/het-shah-36a683230/" target="_blank"
-                        class="text-gray-400 text-3xl hover:text-pink-500 transition">
+                        class="text-pink-500 text-3xl hover:text-gray-400 transition"> 
                         <i class="fa-brands fa-linkedin"></i>
                     </a>
                     <a href="https://www.facebook.com/profile.php?id=100068704827222" target="_blank"
-                        class="text-gray-400 text-3xl hover:text-pink-500 transition">
+                        class="text-pink-500 text-3xl hover:text-gray-400 transition"> 
                         <i class="fa-brands fa-facebook"></i>
                     </a>
                     <a href="https://www.instagram.com/hetshah72/?ref=8101&hl" target="_blank"
-                        class="text-gray-400 text-3xl hover:text-pink-500 transition">
+                        class="text-pink-500 text-3xl hover:text-gray-400 transition">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
                 </div>
@@ -191,13 +202,12 @@
                     Download CV
                 </a>
             </div>
-    
             <!-- Right Section -->
             <div class="lg:w-1/2 bg-gray-800 p-8 rounded-lg shadow-lg">
-                <form action="#" method="POST" class="space-y-6">
-                    <input type="text" name="name" placeholder="Your Name" required
+                <form action="#" class="space-y-6 fri" name="submit-to-google-sheet">
+                    <input type="text" name="name" placeholder="Your Name" 
                         class="w-full bg-gray-900 text-white p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500">
-                    <input type="email" name="email" placeholder="Your Email" required
+                    <input type="email" name="email" placeholder="Your Email" 
                         class="w-full bg-gray-900 text-white p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500">
                     <textarea name="message" rows="6" placeholder="Your Message"
                         class="w-full bg-gray-900 text-white p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
@@ -213,6 +223,21 @@
     <div class="bg-gray-900 text-center py-4">
         <p class="text-sm text-gray-400">© HET SHAH</p>
     </div>
+    <script src="index.js"></script>
+
+    
+    
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwJx5jz0vUVTE1xxbRFexEmatQ9AAVBT9b0vgLs9D0zzq_kuRK_Pk7mpPrZo_mfAKk/exec'
+        const form = document.forms['submit-to-google-sheet']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
+        <!-- <div class="mt-4 text-center">
+            <a href="index.html" class="text-blue-500 hover:underline">Go back to Index</a>
+        </div> -->
+        <h1 class="text-2xl font-bold mb-4 text-center">Simple Calculator</h1>
+        <div class="mb-4">
+            <input type="number" id="num1" placeholder="Enter first number"
+                class="border border-gray-300 rounded-lg w-full p-2" />
+        </div>
+        <div class="mb-4">
+            <input type="number" id="num2" placeholder="Enter second number"
+                class="border border-gray-300 rounded-lg w-full p-2" />
+        </div>
+        <div class="mb-4">
+            <select id="operator" class="border border-gray-300 rounded-lg w-full p-2">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+        </div>
+        <button onclick="calculate()" class="bg-blue-500 text-white w-full py-2 rounded-lg hover:bg-blue-600">
+            Calculate
+        </button>
+        <button onclick="addToMemory()" class="bg-green-500 text-white w-full py-2 rounded-lg hover:bg-green-600 mt-2">
+            M+
+        </button>
+        <p id="result" class="mt-4 text-center text-lg font-semibold"></p>
+        <p id="memory" class="mt-2 text-center text-sm text-gray-600">Memory: 0</p>
+    </div>
+
+    <script>
+        let memory = 0; // Memory value
+
+        function calculate() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const operator = document.getElementById("operator").value;
+            let result;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                result = "Please enter valid numbers";
+            } else {
+                switch (operator) {
+                    case "+":
+                        result = num1 + num2;
+                        break;
+                    case "-":
+                        result = num1 - num2;
+                        break;
+                    case "*":
+                        result = num1 * num2;
+                        break;
+                    case "/":
+                        result = num2 !== 0 ? num1 / num2 : "Cannot divide by zero";
+                        break;
+                    default:
+                        result = "Invalid operator";
+                }
+            }
+
+            document.getElementById("result").innerText = `Result: ${result}`;
+        }
+
+        function addToMemory() {
+            const resultText = document.getElementById("result").innerText;
+            const result = parseFloat(resultText.replace("Result: ", ""));
+
+            if (!isNaN(result)) {
+                memory += result;
+                document.getElementById("memory").innerText = `Memory: ${memory}`;
+            } else {
+                alert("No valid result to add to memory");
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="bg-white shadow-xl rounded-2xl p-6 w-80">
+        <h1 class="text-2xl font-bold text-center mb-4">Calculator</h1>
+        <input type="text" id="calc-screen" class="w-full text-right bg-gray-100 p-2 rounded mb-4" disabled />
+        <div class="grid grid-cols-4 gap-2">
+            <button class="calc-btn bg-gray-200">7</button>
+            <button class="calc-btn bg-gray-200">8</button>
+            <button class="calc-btn bg-gray-200">9</button>
+            <button class="calc-btn bg-orange-400" data-op="/">/</button>
+
+            <button class="calc-btn bg-gray-200">4</button>
+            <button class="calc-btn bg-gray-200">5</button>
+            <button class="calc-btn bg-gray-200">6</button>
+            <button class="calc-btn bg-orange-400" data-op="*">*</button>
+
+            <button class="calc-btn bg-gray-200">1</button>
+            <button class="calc-btn bg-gray-200">2</button>
+            <button class="calc-btn bg-gray-200">3</button>
+            <button class="calc-btn bg-orange-400" data-op="-">-</button>
+
+            <button class="calc-btn bg-gray-200">0</button>
+            <button class="calc-btn bg-orange-400" data-op="M+">M+</button>
+            <button class="calc-btn bg-orange-400" data-op="=">=</button>
+            <button class="calc-btn bg-orange-400" data-op="+">+</button>
+
+            <button class="calc-btn bg-red-400 col-span-2" data-op="C">C</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            let currentInput = "";
+            let memory = 0;
+
+            function updateScreen(value) {
+                $("#calc-screen").val(value);
+            }
+
+            $(".calc-btn").click(function () {
+                const value = $(this).text();
+                const operation = $(this).data("op");
+
+                if (operation === "C") {
+                    currentInput = "";
+                    updateScreen("");
+                } else if (operation === "=") {
+                    try {
+                        currentInput = eval(currentInput).toString();
+                        updateScreen(currentInput);
+                    } catch {
+                        updateScreen("Error");
+                    }
+                } else if (operation === "M+") {
+                    try {
+                        memory += parseFloat(eval(currentInput));
+                        updateScreen(`Memory: ${memory}`);
+                    } catch {
+                        updateScreen("Error");
+                    }
+                } else if (operation) {
+                    currentInput += operation;
+                    updateScreen(currentInput);
+                } else {
+                    currentInput += value;
+                    updateScreen(currentInput);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html> -->

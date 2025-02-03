@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .canvas1 {
+            width: 100px !important;
+            height: 100px !important;
+        }
+
+        #expenseChart {
+            width: 300px !important;
+            height: 300px !important;
+        }
+
+        .bg-container {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .fill-space {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body class="p-6 bg-gray-100">
+    <div class="grid-container">
+        <!-- Row 1: Add Group and Groups -->
+        <div class="bg-container fill-space">
+            <h1 class="text-2xl font-bold mb-4">Expense Tracker</h1>
+            <h2 class="text-lg font-semibold mb-2">Add Group</h2>
+            <input type="text" id="groupName" placeholder="Group Name" class="border p-2 rounded w-full mb-2">
+            <button id="addGroup" class="bg-blue-500 text-white px-4 py-2 rounded mb-2">Add Group</button>
+            <div></div> <!-- Filler space -->
+        </div>
+        <div class="bg-container">
+            <h2 class="text-xl font-semibold">Groups</h2>
+            <ul id="groupList" class="bg-white p-4 rounded-lg shadow-md mb-6"></ul>
+        </div>
+
+        <!-- Row 2: Add Expense and Expenses -->
+        <div class="bg-container">
+            <div class="bg-container fill-space">
+                <h2 class="text-lg font-semibold mb-2">Add Expense</h2>
+                <input type="text" id="expenseName" placeholder="Expense Name" class="border p-2 rounded w-full mb-2">
+                <input type="number" id="expenseAmount" placeholder="Amount" class="border p-2 rounded w-full mb-2">
+                <select id="expenseGroup" class="border p-2 rounded w-full mb-2"></select>
+                <input type="datetime-local" id="expenseDate" class="border p-2 rounded w-full mb-2">
+                <button id="addExpense" class="bg-green-500 text-white px-4 py-2 rounded mb-2">Add Expense</button>
+            </div>
+        </div>
+        <div class="bg-container">
+
+            <h2 class="text-xl font-semibold">Expenses</h2>
+            <ul id="expenseList" class="bg-white p-4 rounded-lg shadow-md mb-6"></ul>
+
+        </div>
+
+        <!-- Row 3: Summary -->
+        <div class="bg-container" style="grid-column: span 2;">
+            <h2 class="text-xl font-semibold">Summary</h2>
+            <div>
+                <label for="monthSelector" class="block font-semibold mb-2">Select Month:</label>
+                <input type="month" id="monthSelector" class="border p-2 rounded w-full">
+                <ul id="monthlyExpenseList" class="bg-white p-4 rounded-lg shadow-md mt-4"></ul>
+
+                <p>Total Expense: <span id="totalExpense">0</span></p>
+                <p>Highest Expense: <span id="highestExpense">None</span></p>
+                <p>Total Expense This Month: <span id="monthlyExpense">₹0</span></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

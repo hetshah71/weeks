@@ -1,0 +1,17 @@
+{
+    "name": "dell/weeks",
+    
+    "authors": [
+        {
+            "name": "hetshah71",
+            "email": "hetshah.ast@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Http\\": "Http/"
+        }
+    }
+}

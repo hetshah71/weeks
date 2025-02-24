@@ -1,0 +1,15 @@
+{
+    "name": "dell/week-7",
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/"
+        }
+    },
+    "authors": [
+        {
+            "name": "hetshah71",
+            "email": "hetshah.ast@gmail.com"
+        }
+    ],
+    "require": {}
+}

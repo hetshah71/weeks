@@ -22,6 +22,7 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
 <script>
+    //Document Ready Function
     $(document).ready(function() {
         // Clear previous messages when starting a new submission
         function clearMessages() {
@@ -29,8 +30,9 @@
             $("#name-error").empty();
             $(".error-message").remove();
         }
-
+        //Form Validation Setup
         $("#groupForm").validate({
+            //Rules for Validation
             rules: {
                 name: {
                     required: true,
@@ -43,7 +45,8 @@
                     minlength: "Group name must be at least 3 characters long"
                 }
             },
-            errorClass: "text-red-500 text-xs",
+            errorClass: "text-red-500 text-xs", //Error Message Styling
+            //Custom Error Placement
             errorPlacement: function(error, element) {
                 if (element.attr("name") === "name") {
                     $("#name-error").html(error);
@@ -54,6 +57,7 @@
             },
             submitHandler: function(form) {
                 clearMessages();
+                //Disable Submit Button
                 const submitButton = $(form).find('button[type="submit"]');
                 submitButton.prop('disabled', true);
 
@@ -64,7 +68,6 @@
                     success: function(response) {
                         try {
                             const jsonResponse = typeof response === 'string' ? JSON.parse(response) : response;
-                            
                             if (jsonResponse.error) {
                                 $("#name-error").html(jsonResponse.error);
                                 submitButton.prop('disabled', false);
@@ -72,10 +75,10 @@
                             }
 
                             $("#message-container").html('<p class="text-green-500 text-sm mb-4">' + (jsonResponse.message || 'Group added successfully!') + '</p>');
-                            
+
                             // Disable form controls
                             $("#groupForm :input").prop("disabled", true);
-                            
+
                             // Redirect after successful creation
                             setTimeout(() => {
                                 window.location.href = '/groups';

@@ -3,7 +3,7 @@
 <?php require BASE_PATH . "views/partials/banner.php"; ?>
 
 <main>
-    <div class="container mx-auto max-w-7xl px-4 py-1 sm:px-6 lg:px-8">
+    <div class="container mx-auto max-w-7xl px-4 py-1 sm:px-6 lg:px-8 mt-6">
         <!-- Stats Overview -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <!-- Total Expense Card -->

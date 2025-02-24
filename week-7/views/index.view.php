@@ -18,7 +18,6 @@
                     </svg>
                 </div>
             </div>
-
             <!-- Max Expense Card -->
             <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
                 <div class="flex items-center justify-between">
@@ -34,7 +33,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Monthly Summary Card -->
             <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
                 <div class="flex flex-col">
@@ -53,7 +51,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Expenses Section -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- Recent Expenses -->
@@ -76,7 +73,6 @@
                     <?php endforeach; ?>
                 </div>
             </div>
-
             <!-- Group Summary -->
             <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
                 <h3 class="text-lg font-semibold text-gray-800 mb-4">Group Analysis</h3>

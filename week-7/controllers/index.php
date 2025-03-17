@@ -22,7 +22,7 @@ $totalExpense = $db->query("
 ")->find();
 // Fetch maximum expense
 $maxExpense = $db->query("
-    SELECT MAX(amount) AS amount,name FROM expenses
+    SELECT MAX(amount) AS amount,name FROM expenses WHERE amount = (SELECT MAX(amount) FROM expenses)
 ")->find();
 // Fetch monthly expenses
 $monthlyExpense = $db->query("
@@ -30,8 +30,8 @@ $monthlyExpense = $db->query("
         DATE_FORMAT(date, '%Y-%m') AS month,
         SUM(amount) AS total_monthly_expense,
         MAX(amount) AS max_monthly_expense
-    FROM expenses
-    GROUP BY month
+        FROM expenses
+        GROUP BY month
     ORDER BY month DESC
 ")->get();
 view("index.view.php", [

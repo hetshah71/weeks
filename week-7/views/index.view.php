@@ -22,7 +22,7 @@
             <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-sm text-gray-600">Biggest Purchase</p>
+                        <p class="text-sm text-gray-600">Biggest Spent</p>
                         <p class="text-2xl font-bold mt-2 text-gray-800">₹<?= $maxExpense['amount'] ?? 0; ?></p>
                         <p class="text-sm text-gray-500 mt-1"><?= $maxExpense['name'] ?? 'N/A'; ?></p>
                     </div>

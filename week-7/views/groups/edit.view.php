@@ -60,14 +60,9 @@
                 }
             },
             errorClass: "text-red-500 text-xs",
-            errorPlacement: function(error, element) {
-                error.insertAfter(element);
-                error.addClass("error-message mt-1");
-            },
             submitHandler: function(form) {
                 clearMessages();
                 const formData = $(form).serializeArray();
-                
                 $.ajax({
                     url: $(form).attr('action'),
                     type: 'POST',

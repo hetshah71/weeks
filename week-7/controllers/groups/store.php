@@ -5,7 +5,9 @@ use Core\Validator;
 
 $config = require base_path('config.php');
 $db = new Database($config['database']);
-
+echo json_encode([
+    "uu"
+]);
 // Validate the form
 $errors = [];
 
@@ -19,7 +21,7 @@ if (empty($errors)) {
     if (!empty($existingGroup)) {
         http_response_code(422);
         echo json_encode(['error' => 'Group name "' . htmlspecialchars($_POST['name']) . '" already exists!']);
-        exit();
+        // exit();
     }
 }
 
@@ -27,7 +29,7 @@ if (empty($errors)) {
 if (!empty($errors)) {
     http_response_code(422);
     echo json_encode(['error' => $errors['name']]);
-    exit();
+    // exit();
 }
 
 try {
@@ -39,14 +41,14 @@ try {
     if ($result) {
         http_response_code(200);
         echo json_encode(['message' => 'Group created successfully']);
-        exit();
+        // exit();
     } else {
         http_response_code(500);
         echo json_encode(['error' => 'Failed to create group']);
-        exit();
+        // exit();
     }
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode(['error' => 'An error occurred while creating the group']);
-    exit();
+    // exit();
 }

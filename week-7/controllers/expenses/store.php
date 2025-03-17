@@ -3,8 +3,13 @@
 use Core\Database;
 use Core\Validator;
 
+
 $config = require base_path('config.php');
 $db = new Database($config['database']);
+
+echo json_encode([
+    "uu"
+]);
 
 // Validate the form
 $errors = [];
@@ -41,7 +46,7 @@ try {
         'group_id' => $_POST['group_id']
     ]);
 
-    if ($result) {
+    if (!$result) {
         echo json_encode(['message' => 'Expense created successfully']);
     } else {
         http_response_code(500);

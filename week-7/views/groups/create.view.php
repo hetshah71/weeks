@@ -28,7 +28,8 @@
         function clearMessages() {
             $("#message-container").empty();
             $("#name-error").empty();
-            $(".error-message").remove();
+            // console.log($(".error-message"));
+            // $(".error-message").remove();
         }
         //Form Validation Setup
         $("#groupForm").validate({
@@ -53,7 +54,7 @@
                 } else {
                     error.insertAfter(element);
                 }
-                error.addClass("error-message");
+                //error.addClass("error-message");
             },
             submitHandler: function(form) {
                 clearMessages();
@@ -75,10 +76,8 @@
                             }
 
                             $("#message-container").html('<p class="text-green-500 text-sm mb-4">' + (jsonResponse.message || 'Group added successfully!') + '</p>');
-
                             // Disable form controls
                             $("#groupForm :input").prop("disabled", true);
-
                             // Redirect after successful creation
                             setTimeout(() => {
                                 window.location.href = '/groups';

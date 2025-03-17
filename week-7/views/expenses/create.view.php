@@ -60,22 +60,22 @@
 
         $("#expenseForm").validate({
             rules: {
-                name: {
-                    required: true,
-                    minlength: 3
-                },
-                amount: {
-                    required: true,
-                    number: true,
-                    min: 0.01
-                },
-                date: {
-                    required: true,
-                    date: true
-                },
-                group_id: {
-                    required: true
-                }
+                // name: {
+                //     required: true,
+                //     minlength: 3
+                // },
+                // amount: {
+                //     required: true,
+                //     number: true,
+                //     min: 0.01
+                // },
+                // date: {
+                //     required: true,
+                //     date: true
+                // },
+                // group_id: {
+                //     required: true
+                // }
             },
             messages: {
                 name: {
@@ -96,10 +96,6 @@
                 }
             },
             errorClass: "text-red-500 text-xs",
-            errorPlacement: function(error, element) {
-                error.insertAfter(element);
-                error.addClass("error-message mt-1");
-            },
             submitHandler: function(form) {
                 clearMessages();
                 $.ajax({
@@ -107,20 +103,22 @@
                     type: 'POST',
                     data: $(form).serialize(),
                     success: function(response) {
+                        console.log(response);
+                        return false;
                         try {
                             const jsonResponse = typeof response === 'string' ? JSON.parse(response) : response;
-                            
+                            //console.log(jsonResponse);
                             if (jsonResponse.error) {
                                 $("#message-container").html('<p class="text-red-500 text-sm mb-4">' + jsonResponse.error + '</p>');
                                 return;
                             }
 
                             $("#message-container").html('<p class="text-green-500 text-sm mb-4">' + (jsonResponse.message || 'Expense added successfully!') + '</p>');
-                            
+
                             // Disable form controls
                             $("#expenseForm :input").prop("disabled", true);
-                            
-                            // Redirect after successful creation
+
+                            // // Redirect after successful creation
                             setTimeout(() => {
                                 window.location.href = '/expenses';
                             }, 1000);
@@ -129,10 +127,10 @@
                         }
                     },
                     error: function(xhr) {
-                        const message = xhr.responseJSON && xhr.responseJSON.error 
-                            ? xhr.responseJSON.error 
-                            : 'An error occurred while adding the expense.';
-                        
+                        const message = xhr.responseJSON && xhr.responseJSON.error ?
+                            xhr.responseJSON.error :
+                            'An error occurred while adding the expense.';
+
                         $("#message-container").html('<p class="text-red-500 text-sm mb-4">' + message + '</p>');
                     }
                 });
